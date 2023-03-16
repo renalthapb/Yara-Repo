@@ -360,6 +360,169 @@ rule shell_ruzhu {
       8 of them
 }
 
+rule htaccess_rewriter {
+   meta:
+      description = "htaccess_rewriter"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "7d232f31c931c7f7b41339775539dc4014f2a81770c9d0c3a0a144b2c094940f"
+   strings:
+      $x1 = "<?php error_reporting(0); @ini_set('error_log', NULL); @ini_set('log_errors', 0);  @ini_set('display_errors', 0);  echo \"FoxAut" ascii
+      $s2 = "W5kZXgucGhwIFtMXQo8L0lmTW9kdWxlPgojIEVORAo=\"); if (file_exists(\"$root/wp-config.php\") && file_exists(\"$root/.htaccess\")){ u" ascii
+      $s3 = "open(\"$root/.htaccess\",\"w\"),$htaccess);} }elseif (file_exists(\"$root/configuration.php\") && file_exists(\"$root/.htaccess" ascii
+      $s4 = "75%73%66%6F%78%2E%63%6F%6D'))</script> , anonymousfox.net<br>Telegram: @Anonymous_Fox\\n\"; if (isset($_GET[\"403\"])){ $htacces" ascii
+      $s5 = "e(fopen(\"$root/.htaccess\",\"w\"),$htaccess); } } if (file_exists(\"$root/.user.ini\")){ unlink(\"$root/.user.ini\"); }  } $cod" ascii
+      $s6 = "URNTRANSFER, TRUE); curl_setopt($curl, CURLOPT_URL, $url); curl_setopt($curl, CURLOPT_USERAGENT, \"Mozilla/5.0 (Windows NT 10.0;" ascii
+      $s7 = "ink(\"$root/.htaccess\"); if (function_exists('file_put_contents')) { file_put_contents(\"$root/.htaccess\",$htaccess); }else{ f" ascii
+      $s8 = "(\"$root/.htaccess\"); if (function_exists('file_put_contents')) { file_put_contents(\"$root/.htaccess\",$htaccess); }else{ fwri" ascii
+      $s9 = "<?php error_reporting(0); @ini_set('error_log', NULL); @ini_set('log_errors', 0);  @ini_set('display_errors', 0);  echo \"FoxAut" ascii
+      $s10 = "p://'.$_GET[\"php\"]; $t = \"<token>000000000</token>\"; if (empty($code) or !stristr($code, \"http\")){ exit; } else { $php=fil" ascii
+      $s11 = " curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0); } curl_setopt($curl, CURLOPT_HEAD" ascii
+      $s12 = "ER, false); return curl_exec ($curl); } ?>" fullword ascii
+      $s13 = "V5 [The best tool]<br>Download: anonymousfox.co , <script type='text/javascript'>document.write(unescape('%61%6E%6F%6E%79%6D%6F%" ascii
+      $s14 = "HAkIC0gW0xdClJld3JpdGVDb25kICV7UkVRVUVTVF9GSUxFTkFNRX0gIS1mClJld3JpdGVDb25kICV7UkVRVUVTVF9GSUxFTkFNRX0gIS1kClJld3JpdGVSdWxlIC4ga" ascii
+      $s15 = "contents($code); if (empty($php)){ $php = curl($code); } $php=str_replace(\"<?php\", \"\", $php); $php=str_replace(\"?>\", \"\"," ascii
+      $s16 = "WOW64; rv:43.0) Gecko/20100101 Firefox/43.0\"); curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE); if (stristr($url,\"https://\")" ascii
+      $s17 = "base64_decode(\"IyBCRUdJTgo8SWZNb2R1bGUgbW9kX3Jld3JpdGUuYz4KUmV3cml0ZUVuZ2luZSBPbgpSZXdyaXRlQmFzZSAvClJld3JpdGVSdWxlIF5pbmRleC5w" ascii
+      $s18 = "eval($php); } function curl($url) { $curl = curl_init(); curl_setopt($curl, CURLOPT_TIMEOUT, 40); curl_setopt($curl, CURLOPT_RET" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 6KB and
+      1 of ($x*) and 4 of them
+}
+
+rule shell_kids_jaman_now {
+   meta:
+      description = "shell - Kids Kids Jaman Now"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "e3a8aa44722f2e6b12d003bede1ad8a5bbb649f105a3d24ae5a9a2849f089c7a"
+   strings:
+      $s1 = "//Shell Recoded From IndoXploit Shell" fullword ascii
+      $s2 = "$Kidsjamannow= \"7X35e9rIsujPme+b/6Gj8Q32jc1zO4nXGeyAaoyxjZdZHp9RJG6MhSRAU8zk/e2vqhepJQQGh9xmzn2Ts0v0RV3dXV1IXV1deriG4XZ33TAt3Vx" ascii
+      $s3 = "2H25oDwviqLEMgj/cyB2KV4xvSPyUfXvcRZHkYuafb350kuKZf+C0aR7s218WYOmw+woYVZaQ09bY9BN+YenbYjzogJlmTIJ0bChoNVoAWf8SZ0WDcyhjgEI/D66HiBQ" ascii
+      $s4 = "T9qLUibmfw8lQWfMRW/MRcGYwZBEdtkFru+3gZwOO1rVeYKWdDdoAzTOLWxZSgL9BpK2AkipBW2qyxr+zXP0CVlys6+BwvpKRf0GdaY+1qCS0+hbwB42RE7C/+Xw/37r" ascii
+      $s5 = "//Thanks Buat Yg Udh Support Buat Shell Ini" fullword ascii
+      $s6 = "2lbBp+2i5ZTuq2pFq+w37Fx6+juXIvTceCfFQKYoOIB5OslVZnEqWh23vqhkkFqBNPtQFLov5xo/GyHU9+06Hatd+MIBIn+hAosjBOqlxQzOqd8hdFRu+3OYLA+GNrsF" ascii
+      $s7 = "+xflg3eAaKltEPgYY8d2thKXxdRQd7g+yfFotUuFLk8qYBi2xt0WglhdsAsO1gB5aVBaNChtX8Jl7I5eJB+5H+tj7O4Wq0sKbTyq/bq6runLpHRoPMNvw4XanlK4uq+2" ascii
+      $s8 = "OryrnH8u+hs3BwP6fWOQLdwB4zk8HBydH5RNvRvO4CQGoNUGVHp1o73nlQe1IyBzj8LGCwnNs+MCMDDBuHV92r8p6kYmBGgPi0h/Dx8o2/fOKD7AfEw/h2dkd7g4D2WI" ascii
+      $s9 = "s1hCOXTmzCmDOhkj8aaWRld3Kp4cuNEnSRvLj0aSrXy02ktenBJutBKqBcxnrKlU8WCiWc+0/lpZPGQDi+fUAwxfx3Ljqu0XZ8m3zDqoznWTnVfFculsmV3rfkPzp7NI" ascii
+      $s10 = "ohteZSk2vDMD1J1Td/dppWuxQihYnh0jmEQgNRU2YIBJ+IMcpfMzA3vSR7ef2j2DPyvXeU4UNNPrba4+hxXRedCT3N1Q+mpz5Cx06KkoKsrscHMAruNEJy4E0TQ1RYXf" ascii
+      $s11 = "/1GT/1compT2PRFxEsQgNZqcVwCQlLaZABPjGqdDx6TjsjT6nyW+rUygbZz8iMkywqL1S4mmV9+BoeXwxSW2GxI8ikhU7uSrgyBNOnyjCipecoCfImE6y4lpX+HhzRDC" ascii
+      $s12 = "lGDffWP9HeZuNAclOKCC+IGtUTmpzBSCioaMDid0Ka4Tyxx1oo6boHz/ZjJY/45KwumfKTxPMXK7n9stN1qNRxFWvL5WGNl5dCCHlhjjN21EK/KiE31TUD9Efoc29PQJ" ascii
+      $s13 = "BP0Mc1QFqtdbDRnOAZ414mHE2dddcGlPoCAdhBnAIBT6K2yb02SAg6RpL87JBXy8c9Hjbc8HK38MTlogAnfrBQkf+tmkktsaaz7wqFv4f2U/sacTIPpNQniaO6hPI8/E" ascii
+      $s14 = "hdJytbhZZUbVuty7u9s7vturlA93e4Vyd0Odqm+pZ0o/qhZ4l6f7SHmueAErm7EmGmVwNReEyYSPAUoFUwfB9jXDjeaIAecgBAUDbqE6M7Rtnl3/1tRZ16j3GvYiSoyD" ascii
+      $s15 = "v196lT+X7+7L9N9+JpNMYtvl+497p/Cpwu+nh8yeut9d3YDfmUk58Z+SSejfyvX6bLkKH73yHcvBShfhX7FLvfdivn3Mrn11Nz6cPxreaPXovE2+Pa0c7usXjY/X/lbR" ascii
+      $s16 = "YeJlm0NCIhiihBQzb9ybCsxYU7OpgIyhPlw+UqEqVFXww3VKAyL8IMliUElgBkTS6hiykm+FfuuxHdxinKx+8wzcwWiMpchGO7Sj4mKohiY8ddPhYjaQodtjjWc6fpD1" ascii
+      $s17 = "i3LDCFvvuTMVNlhmgyAngCDSyTYb690W1fvSvsbMvjspZ1Dcwcu174AmatCy4el25R078laPYJJJRVvbGQ4s6Tkx0V7Mvbrh6lDPMPAQyGRIz2j4Cos8vsbjTwEIdneT" ascii
+      $s18 = "PLhc+ZSC5ojXXXzrDhtze2ShXqoWj6rFL6nrg4P9+iH8qpevqoWD1NelJfIXTADYbbnnqqYBICxdt9qLypWm9Xy3o5nKMkRXfkZi4Md9qWPOkvbb9m7xDr+6lg3ltIH7" ascii
+      $s19 = "UUF7C66JPLKrNVxoRMnArwxo/2rwhrfOa1CrQu9/sWcsjP4yi0tmVkV3UjZe3sOLh2J2gagmGLPuRyw1chJnkCZFyxHzQYQZhWrM65bvL6Yyi+n//n1282Qzg/4erDa/" ascii
+      $s20 = "bW0j0jdNhPath7Q1tmKsHv07uV+i6BiQIfaEo/+W87N1y5GTLF6S5kSOl1enGWonrFoUjpTLBmUy2T6wWE6gUUcE3EOKVdCnAM4uv42DN0ho1tlRIMmdQdHTv7GjYOHN" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 90KB and
+      8 of them
+}
+
+rule shell_ipt {
+   meta:
+      description = "shell - IPT"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "7b730ab8ac42b5dfa4d4e65dd06f8d5e4dde63665bec3a76eb2e9fb0336f569c"
+   strings:
+      $s1 = "<style type=\"text/css\">@import url(\"https://fonts.googleapis.com/css?family=Fredericka+the+Great|Kaushan+Script|Press+Start+2" ascii
+      $s2 = "<style type=\"text/css\">@import url(\"https://fonts.googleapis.com/css?family=Fredericka+the+Great|Kaushan+Script|Press+Start+2" ascii
+      $s3 = "/*------------------ Login Data End ----------*/" fullword ascii
+      $s4 = "/*------------------ LOGIN -------------------*/" fullword ascii
+      $s5 = "<link href=\"https://fonts.googleapis.com/css?family=Lacquer|&display=swap\" rel=\"stylesheet\">" fullword ascii
+      $s6 = "if(!empty($_SERVER['HTTP_USER_AGENT']))" fullword ascii
+      $s7 = "        if($_POST[\"usrname\"]==$username && $_POST[\"passwrd\"]==$password)" fullword ascii
+      $s8 = "    #loginbox { font-size:11px; color:green; width:1200px; height:200px; border:1px solid #4C83AF; background-color:#111111; bor" ascii
+      $s9 = "$email=\"wawankepaladesa@gmail.com\";" fullword ascii
+      $s10 = "<textarea cols=80 rows=20 name=\"src\">'.htmlspecialchars(file_get_contents($_POST['path'])).'</textarea><br />" fullword ascii
+      $s11 = "echo('<pre>'.htmlspecialchars(file_get_contents($_GET['filesrc'])).'</pre>');" fullword ascii
+      $s12 = " transparent;content: '';height: 0;left: 50%;margin-left: -10px;position: absolute;top: 40px;width: 0;}" fullword ascii
+      $s13 = "                print'<script>alert(\"UserName/PassWord Salah Gan\");</script>';" fullword ascii
+      $s14 = "Permission : <input name=\"perm\" type=\"text\" size=\"4\" value=\"'.substr(sprintf('%o', fileperms($_POST['path'])), -4).'\" />" ascii
+      $s15 = "            print'<script>document.cookie=\"user='.$_POST[\"usrname\"].';\";document.cookie=\"pass='.md5($_POST[\"passwrd\"]).';" ascii
+      $s16 = "            print'<script>document.cookie=\"user='.$_POST[\"usrname\"].';\";document.cookie=\"pass='.md5($_POST[\"passwrd\"]).';" ascii
+      $s17 = "$password=\"W4NT3K\";" fullword ascii
+      $s18 = "ame=\"passwrd\" value=\"password\" onfocus=\"if (this.value == \\'password\\') this.value = \\'\\';\"></td></tr>" fullword ascii
+      $s19 = " if(get_magic_quotes_gpc()){ foreach($_POST as $key=>$value){ $_POST[$key] = stripslashes($value);" fullword ascii
+      $s20 = "}elseif(isset($_GET['option']) && $_POST['opt'] != 'delete'){" fullword ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 50KB and
+      8 of them
+}
+
+rule shell_unidenttified {
+   meta:
+      description = "shell - unidenttified"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-14"
+      hash1 = "5d17dd31dbb1b38b5622222f84dee6fef8cf0db17ab7ab9587f891bdc4e00556"
+   strings:
+      $x1 = "$VwGQECVgMV='func'.'t'.'ion'.'_'.'e'.'xi'.'s'.'ts';$wJKCM='eva'.'l';$YvVLkbUAdSRd='g'.'zin'.'f'.'la'.'t'.'e'.'';$YqtmwUJzgzQX='A" ascii
+      $s2 = "pEWd2JwDll3OFZveMSi/J8mxHxxl+Yyclr17+PKfOFrb/pOXxbd+dE3uDE/MmnI8ZrCG6Hwzoaqx2S57C+l+CYkGyrxZPrAwtMpQ5IuM8k/UjRbBNd9n3ybq5SUZFXhQ" ascii
+      $s3 = "3K5omLTragKBRFs4vFRE07VWGZOfROrWWQJQeB8KBa640T6rExEcbOQhh30tgJ8JNxqamuXwM8S8qYyA/vy6IzzgKWiW97J8IdH76P2fjFkyDO8jKl1aB8Hw1z30z3hc" ascii
+      $s4 = "5ybtb3NA6Qn1u1P7oPkZt0ORF1cDxG8GJiUySQU4T+aRGcRG8xHlfF8AVnaJqPIpedB+6akKxYT3yg5dnHSx7VpwpEALyI5yl3ef0cK5+saGfwJ8CnfP19qwsM7aikVf" ascii
+      $s5 = "w+t0gI7Du2qJ56DsB+LFcDdA2DN65OOPJlc7VUUvQ3JjpwNzhJ/76sorE4+8MaYBlmpdLl+ytF7q85e4N4uJ9taYvcM4Emrt0Vmy7jdkPIJizL92GfrfZ6d265RRr1C7" ascii
+      $s6 = "zdQZTIQqBvIp6pmPDiV2jhAoYoAVJNluzeGlDCfP1N9rSMIzialzkGqwZBbplKgoSclJSA9he4x9uDOIcHGcIawVc3kdIy1Q34tNBZDxxWYXrP0CSL0qKykOZDfH064r" ascii
+      $s7 = "iK7sf4fOvqrO+/TUXUebXe3KVMsrph9b78+F8Hrkjs9emUAJFulTSPylSrtgtPFY43ntWCJa2rrILDMrYl06FGBED6wB9o/LDUJNMGiqwdOSL62IxW5RLfAztJG5AG4s" ascii
+      $s8 = "D+mqJIVxaF4iY2KXBBn1uBG34EtltYG3lBPwM54CqOUmLxY18EvS/EEgD0YOY4y/SAqz/7zD7o9ZOf72tzkKdkot6UPqjUO0piy4pl2DubWU1USPykjNcFRonEOWGhYo" ascii
+      $s9 = "NV37itu0B3jUUh9+yvo4MV8XmRgjMNwAltS6zblvAUwzLpzetdbxlcG3Z/CiPNgZ5aIs6JD5aizRAUuSt3WGtuyTcdZ+4EHxaEk42tBfMUqi7/uBtEYETBsRjXJi0Weu" ascii
+      $s10 = "ip1/woL6Jr7SMez65y16YAktz+VmHkcbkfV696W/4RrXPHecKGeIdLLK6HT/+3f+nCYVGMZDPEupVzOwguk4CvRzRXj9i+5oKv19DnwlB5t13ysUsfGoLQTzMdkhlRWb" ascii
+      $s11 = "vNHBy0S865QpfejGDCmcd7D1mLzHBJr9QYJxOLw22qdVZHkn3EkSfVCiH9KBspyTxsHn8X6nxeSf6u3XCEBt6VHO+D4lyDgSUKf7tykxCka5G5+SCgFHWRP2BiF5Hqsm" ascii
+      $s12 = "cEGAruj7P2TURoqC1Qom59Ds5WP0Jckrii02N2Bk+hcDJcNT+mf9hKOf1h5rDAirctm/Fl7DqSh5wOpne+LReVMfcUWjdvP1gKoPQwyB16xo6a0XBstLZPn/OMDbFvxW" ascii
+      $s13 = "nHTX6/VkB9gfJnBMH2OrJz12UX17OjuALgog2zUVbPSXu70Nv3v22GWCpi50RH2J1o47CofT1je3TjghV+XoKHBjP+doh1kUpdLlQs9CK4rDf68ehNpPmM4tfCs4OBas" ascii
+      $s14 = "iTWHMt2L1Nkx+CBfzLh3LoGwddJilh6FRdBSMPXNXZgLJVT4IZpMywPIgC+NJrhy6be/o26RAk0snp3wb+LCfyAc4XTW38afxn5Vg5AbIU+15Gu7XYj4/2eN8CPFt/Iy" ascii
+      $s15 = "5GCMrO8ODgmJ+NZF+5zAIbSsPY7i1jmJqoJNMzjkMLAo3pzj/VYVaVQVY73VGIhWbSiOdhZO2yYS28Rcp8yntUxv5dZy5Q9t6kykAmsPq7vJ1t7qepIg3aRxYpsh7fH3" ascii
+      $s16 = "O6Zpqxyemiu5blpec+1wH6Gtm2Q3KGtUaOF4jUr58icP9y1ciegVCwLogUx9MuvzNTglB66Hs03rVrVZcJuGx26Uf7egeIMfBM4wiI7BEofcIIp2NiRXjHdThGUHaCmL" ascii
+      $s17 = "ASqnyQMYxpRmxKrxlNvSEye0lnyuJnVs9PkDDJHuVbbOfrtfzBlNTE6ANOmbrR4JiGb1K/xADAMBvTrWykUDf6QFZqe0f9gzMaj00XKbabMsgFpowDBbeQ/OloebwQYd" ascii
+      $s18 = "q2RlQqH37FuHiRJkn+CCuNDWBWTeqZlx8lUoWOPUX/no9DnM476efxOjs2osvPWduNPQGlZAIrCVNbX+txF6c+lfL+WTBaitesNqPg8HeJNfEX6XzK/GD9PTJCUsfj+d" ascii
+      $s19 = "0x6TvlPji/4yZ2Hcbdeye/SxbQOUB/yaHpfO5safHR6G8GtSUbOmgokioCC6RL0Qn4o4UvDgPWcgcYZtbXOkxG6rp3eKBn9Jp0PDVZ6teyPbmjjsKe0uRx0uK0S/RztX" ascii
+      $s20 = "OexVyWhr91yTHLlAdbSf/Eknb9KEqwO0wWWlg0pgiAfrzi8D4AYcOGjxO0izyrhRzQYmfkmAfiWqK7W4pIScSsFDLlhsXnsKkXQxCr356yxrMioqpPNumvcJ2mRbbAjd" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 500KB and
+      1 of ($x*) and 4 of them
+}
+
+rule shell_zain_bani {
+   meta:
+      description = "shell - zani_bani"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-14"
+      hash1 = "0e0c060684d89eb04ea7c4a4a07887fbe119ec1ff7574bf085517ad7989b04ef"
+   strings:
+      $x1 = " goto Fy6Bg; Fy6Bg: error_reporting(0); goto MqCa6; MqCa6: function MhAJ1() { goto a6tUo; a6tUo: $ir7ui = 'I could not have a mo" ascii
+      $s2 = "7Ru2Nds01sRcoe+Rrd9tA49eGAV76Mo8XtTPw69SwuY3xVg+tX73uo9NzOQZpIpEox4m/c1M6CVVWsvQlUJ7gLAv0j0rHq7WraboPDj3EqpoRs6auUpTYVW4lvxZzxX0" ascii
+      $s3 = "Ve6lDnoRnOVC95+ajutDF8NA+6qxpxEBXPeGUgSABRznBuW/69p5PaYotB5ucDaYuiDLlNn4ul2Z4N3hlda4wUuxcZnEGDDPBd8DicKwEbiV+lf05kj0ZTM9mJhV4DQb" ascii
+      $s4 = "MZk+4Uu0lYfK8ckwCvz/YpcoUvaUEMkvpOrCp2DJBAIAizeWV2b+a01ac62QltlT8mACT+CGZYDfxC8/9LjKXRTTxMRpRTwPuctdTkcZO73lQyD87OP0cscnhYPEP7N4" ascii
+      $s5 = "lc1ZRag80DOYVQJGvNe4o+bcbMz4VpuzZhLHGbDvFb5vcXhb5Deye0iRMmK76hmMQ5FyZnjwzGKL0giBaAQKKg5zog3EBhyjaGI8509hXUEaRVxv4qHSLWY7+7OTZKcR" ascii
+      $s6 = "hnHLae/aP9oTte8fRUuap5ab9cqCI+B87XMuPCqCLPFq/5KsEDRJRPBwiltsiVf6v9rkZe1czi2Sy33XkaktowWkAQBhYBq8oMjhDRXVBHXsZYlOGAOKglm4dDh8Iu7n" ascii
+      $s7 = "opLoGX0cPoVUW1M/6M87PLNMytI1Qdnl4tPFPQSwNnhFZ356zDr/z1lMz7PsGWrqN/AfnuQL+2ibSV7UydTI9Qegvh5nPL+2VH+EvAMWFn1n9KHyVTxlHd3xjjC48kRT" ascii
+      $s8 = "lTslt3B6C/eC3y4sFUggpbqf9YG7nfQ/0/OlRrAqHZt2NaG5qIdw7IQCQzYIaMjwiRcoRtBLGIM3hF7UusqdVVjfouC91Uge0egu1lwbHB4lCqLMjT/o7oPfP1BxxJe6" ascii
+      $s9 = "k/9JKzpvtzXPK4nQ1jGxYzLdfvIOFPCx464jfYYoZV2z2C6HL8iqKFMK3NctOPFCUr5IMS95lHuab8d8aA/Jc5yyfQwH6fmy/V+djUNZhkMfToDaOywypkgr6pKlM0d+" ascii
+      $s10 = "SwHgKNMoZoiUXABBzFTyku1mQHYDO62M1RcslJoQMaKOTopbxZkeztlzCwhp+3BfxC5U9R3OSMJFrZxtk8GdFvVZL1RuNrux5GCX0EANBGKyW8H8OAFEcqeuR2pL/4dc" ascii
+      $s11 = "fHLr421IG6SRGruNolDOqMGHmNcz6a7Ck7oWySjsapjT6Is33Ezt/4hFa4DTppCkX9PzNq5FcCFKqY7+9LWcL/T6nURrRFICvu9uSEa9Pu1xi3LeA6qbDNav7p9NXhLF" ascii
+      $s12 = "kIyX9xh9e59xcSpylsRIOrj9cfnD4Z6vJDkBxafye4DP6k41cJa0Sk7CPNr+l+tge/8IKod6CXRvfhE+VKob2WGoCaitN46BGBfYn4K4eM2RVR3LlkYf52J+oIlqaKuf" ascii
+      $s13 = "9KAwEHnPvTXWP/zFfXUfl1twWQ/A3/HcrrQJU5d5pl3hWkzOeqB2lTgCMe2mvCvHrPuse/4dBQCi80hSOciJ40PxBDx07f8AuxrgtEj96rS4jNa9P3OyX/rsKiWYM1dL" ascii
+      $s14 = "GenUuE4yvxTrtM3HpbhMBDUt/yj0vahDm15XuTBbJWRtNJzDtlqUBnHzGNvTt2wN7HStfpqBxbZjfpwyOiiwHDzgQEvKzx+pGGoGz0OS8zDWVW66ntbh+K7Q6lRuImas" ascii
+      $s15 = "7FY2BWHkui2MGdy/jTZ7gghx0XJvPou/WPZp/c2Rl4xQPv/lC+EisxiqNPiHu2S+U+T//fuy+5TizUOsxiTzzEFBV5RCCK04NurdYPLLwyN3Mrk7owdqMPKlivOTzuQR" ascii
+      $s16 = "FAIjbQ3nc7UOeIEp2rp3kzOGA2XrQb5aCCvEiLUCpM76Gk2Hm32qRkBKf+JhuzFVz+Mectpb2FjJ1Ovo5AY1/BlvyG7TWzgeWXs339aHxt2F7fEDI7cXfMqN8QotADxc" ascii
+      $s17 = "T464kdY+15D55temkD8aJtq88N8G+H1+6dFK5+bgzis9otXnE3ybt+o3Z3FI5PZZ0512ROs4k8fT2Y1F1t7x1+ADxdou/WVI+exdEdrb+xW60f9YYjmUT9b7ZfGhpGfU" ascii
+      $s18 = "6wYZxjxUgu5SxqpjJwDJdg743bCKNt4CtubaIopm3rhpefKtyX4jS3s/1ZzILbERrMnXKIme14e7yGXPXjLTCwScj093zTN41BT2NFvp77Afdjx+CEFVUtr8AABAQBS2" ascii
+      $s19 = "PHDq4uKuYItU+8Wl47DD1cD5n+lBBhy3xezf8xamLxPQaSj8Qg1B6L0ARw4UA1lBOYPtlW9BfVjV3mg8GIhA+WtYpYiJeL14pOKEgTjPptv+r5DzGkWGxbkDTaSJhHQA" ascii
+      $s20 = "uO92kH+33Mg8rAguwTyB/UWSIQoh10Sd5gumsVdgAk35ngHIgNM0jBJpFh4XI230deHFaJDmToYM6oBHPygc9YCpS4eUGIR3fBVCc6dHMB+QttQC3gVJFx1M1sCXsgfM" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 80KB and
+      1 of ($x*) and 4 of them
+}
+
 
 /* Super Rules ------------------------------------------------------------- */
 
@@ -397,3 +560,114 @@ rule shell_adoh_recode {
       ) or ( all of them )
 }
 
+rule _shell_kids {
+   meta:
+      description = "shell - Kids"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "da1a2c174fc4efbac4e00e39156c6bbe01255e7d966307cba623d97bfe94316e"
+      hash2 = "039f1bd70181f6feac74926693bb9cfa988ca6ca1c5f19ec51262301e2915e97"
+   strings:
+      $s1 = "$user = @get_current_user();" fullword ascii
+      $s2 = "@ini_set('log_errors',0);" fullword ascii
+      $s3 = "@ini_set('max_execution_time',0);" fullword ascii
+      $s4 = "if(!function_exists('posix_getegid')) {" fullword ascii
+      $s5 = "$gid = @getmygid();" fullword ascii
+      $s6 = "$uid = @getmyuid();" fullword ascii
+      $s7 = "$user = $uid['name'];" fullword ascii
+      $s8 = "</form>\";" fullword ascii /* Goodware String - occured 1 times */
+      $s9 = "$group = \"?\";" fullword ascii
+      $s10 = "$group = $gid['name'];" fullword ascii
+      $s11 = "$i .= (($p & 0x0100) ? 'r' : '-');" fullword ascii
+      $s12 = "$i .= (($p & 0x0010) ? 'w' : '-');" fullword ascii
+      $s13 = "$uid = $uid['uid'];" fullword ascii
+      $s14 = "$gid = $gid['gid'];" fullword ascii
+      $s15 = "$i .= (($p & 0x0080) ? 'w' : '-');" fullword ascii
+      $s16 = "$i .= (($p & 0x0020) ? 'r' : '-');" fullword ascii
+      $s17 = "$i .= (($p & 0x0002) ? 'w' : '-');" fullword ascii
+      $s18 = "$i .= (($p & 0x0004) ? 'r' : '-');" fullword ascii
+   condition:
+      ( ( uint16(0) == 0x3f3c or uint16(0) == 0x3c20 ) and filesize < 300KB and ( 8 of them )
+      ) or ( all of them )
+}
+
+rule _shell_mailer {
+   meta:
+      description = "shell - Mailer"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "79b19bf8217fc1acb855583c6b2b282be0370f38b0e1bd0974793ae60bcf5533"
+      hash2 = "e96e0e5fa2edc90e1c6e5130a220059bfff263c6624bebc8416051472a97b3a9"
+   strings:
+      $s1 = "$headers  = \"MIME-Version: 1.0\\r\\n\";" fullword ascii
+      $s2 = "$testa = $_POST['veio'];" fullword ascii
+      $s3 = "$from = $_POST['from'];" fullword ascii
+      $s4 = "$headers .= \"From: \".$realname.\" <\".$from.\">\\r\\n\";" fullword ascii
+      $s5 = "$to = $_POST['emaillist'];" fullword ascii
+      $s6 = "$realname = $_POST['realname'];" fullword ascii
+      $s7 = "$email = explode(\"\\n\", $to);" fullword ascii
+      $s8 = "while($email[$i]) {" fullword ascii
+      $s9 = "  <input type=\"hidden\" name=\"veio\" value=\"sim\">" fullword ascii
+      $s10 = "$subject = $_POST['subject'];" fullword ascii /* Goodware String - occured 1 times */
+      $s11 = "if($testa != \"\") {" fullword ascii
+      $s12 = "$message = $_POST['message'];" fullword ascii /* Goodware String - occured 2 times */
+      $s13 = "$ok = \"ok\";" fullword ascii
+      $s14 = "if($ok == \"ok\")" fullword ascii
+      $s15 = "$count--;" fullword ascii /* Goodware String - occured 5 times */
+   condition:
+      ( ( uint16(0) == 0xbbef or uint16(0) == 0x3f3c ) and filesize < 20KB and ( 8 of them )
+      ) or ( all of them )
+}
+
+rule _test_1 {
+   meta:
+      description = "shell - test"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "7b730ab8ac42b5dfa4d4e65dd06f8d5e4dde63665bec3a76eb2e9fb0336f569c"
+      hash2 = "4500f0420505f3d68460e5e478ba430216a16f193e67df13333bfeff89755095"
+      hash3 = "039f1bd70181f6feac74926693bb9cfa988ca6ca1c5f19ec51262301e2915e97"
+      hash4 = "cc99a727ef8620faf56ce9325eaacd558b5130dbb57d8ed313124166d6d71e15"
+   strings:
+      $s1 = "if(isset($_GET['option']) && $_POST['opt'] == 'delete'){" fullword ascii
+      $s2 = "if(isset($_GET['filesrc'])){" fullword ascii
+      $s3 = "if(isset($_POST['src'])){" fullword ascii
+      $s4 = "if(rmdir($_POST['path'])){" fullword ascii
+      $s5 = "if($_POST['type'] == 'dir'){" fullword ascii
+      $s6 = "if(isset($_POST['newname'])){" fullword ascii
+      $s7 = "if(rename($_POST['path'],$path.'/'.$_POST['newname'])){" fullword ascii
+      $s8 = "if(copy($_FILES['file']['tmp_name'],$path.'/'.$_FILES['file']['name'])){" fullword ascii
+      $s9 = "elseif(!is_readable(\"$path/$dir\")) echo '<font color=\"red\">';" fullword ascii
+      $s10 = "elseif(!is_readable(\"$path/$file\")) echo '<font color=\"red\">';" fullword ascii
+      $s11 = "if(is_writable(\"$path/$file\") || !is_readable(\"$path/$file\")) echo '</font>';" fullword ascii
+      $s12 = "if(is_writable(\"$path/$dir\") || !is_readable(\"$path/$dir\")) echo '</font>';" fullword ascii
+      $s13 = "$scandir = scandir($path);" fullword ascii
+      $s14 = "foreach($scandir as $dir){" fullword ascii
+      $s15 = "if(isset($_FILES['file'])){" fullword ascii
+   condition:
+      ( ( uint16(0) == 0x3f3c or uint16(0) == 0xd8ff or uint16(0) == 0x3c20 ) and filesize < 100KB and ( 8 of them )
+      ) or ( all of them )
+}
+
+rule _test_2 {
+   meta:
+      description = "shell - test"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-03-01"
+      hash1 = "7b730ab8ac42b5dfa4d4e65dd06f8d5e4dde63665bec3a76eb2e9fb0336f569c"
+      hash2 = "4500f0420505f3d68460e5e478ba430216a16f193e67df13333bfeff89755095"
+      hash3 = "cc99a727ef8620faf56ce9325eaacd558b5130dbb57d8ed313124166d6d71e15"
+   strings:
+      $s1 = "echo '</table><br /><center>'.$_POST['path'].'<br /><br />';" fullword ascii
+      $s2 = "}elseif($_POST['opt'] == 'edit'){" fullword ascii
+      $s3 = "}elseif($_POST['type'] == 'file'){" fullword ascii
+      $s4 = "echo perms(\"$path/$dir\");" fullword ascii
+      $s5 = "echo perms(\"$path/$file\");" fullword ascii
+   condition:
+      ( ( uint16(0) == 0x3f3c or uint16(0) == 0xd8ff ) and filesize < 100KB and ( all of them )
+      ) or ( all of them )
+}
