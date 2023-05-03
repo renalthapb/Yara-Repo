@@ -1105,37 +1105,3 @@ rule _Mailer {
       ( ( uint16(0) == 0xbbef or uint16(0) == 0x3f3c ) and filesize < 20KB and ( 8 of them )
       ) or ( all of them )
 }
-
-rule _ObfuscatedPhp
-{
-	meta:
-      description = "Shell in Obfusecated Form"
-      author = "Renaltha P. B."
-      reference = "https://github.com/renalthapb/Yara-Repo"
-      date = "2023-03-27"
-    strings:
-        $eval = /(<\?php|[;{}])[ \t]*@?(eval|preg_replace|system|assert|passthru|(pcntl_)?exec|shell_exec|call_user_func(_array)?)\s*\(/ nocase  // ;eval( <- this is dodgy
-        $eval_comment = /(eval|preg_replace|system|assert|passthru|(pcntl_)?exec|shell_exec|call_user_func(_array)?)\/\*[^\*]*\*\/\(/ nocase  // eval/*lol*/( <- this is dodgy
-        $b374k = "'ev'.'al'"
-		$1 = "'e'.'va'.'l'"
-		$2 = "'eva'.'l'"
-		$3 = "'func'.'t'.'ion'.'_'.'e'.'xi'.'s'.'ts'"
-		$4 = "'func'.'t'.'i'.'on_e'.'x'.'ist'.'s'"
-		$5 = "'gz'.'in'.'f'.'la'.'te'"
-		$6 = "'g'.'zin'.'f'.'la'.'t'.'e'"
-		$7 = "'g'.'zi'.'nfl'.'ate'"
-		$8 = "'gzi'.'n'.'f'.'l'.'at'.'e'"
-        $align = /(\$\w+=[^;]*)*;\$\w+=@?\$\w+\(/  
-        $weevely3 = /\$\w=\$[a-zA-Z]\('',\$\w\);\$\w\(\);/  
-        $c99_launcher = /;\$\w+\(\$\w+(,\s?\$\w+)+\);/  
-        $nano = /\$[a-z0-9-_]+\[[^]]+\]\(/ 
-        $ninja = /base64_decode[^;]+getallheaders/ 
-        $variable_variable = /\${\$[0-9a-zA-z]+}/
-        $too_many_chr = /(chr\([\d]+\)\.){8}/  
-        $concat = /(\$[^\n\r]+\.){5}/  
-        $concat_with_spaces = /(\$[^\n\r]+\. ){5}/ 
-        $var_as_func = /\$_(GET|POST|COOKIE|REQUEST|SERVER)\s*\[[^\]]+\]\s*\(/
-        $comment = /\/\*([^*]|\*[^\/])*\*\/\s*\(/  // eval /* comment */ (php_code)
-condition:
-        (any of them)
-}
