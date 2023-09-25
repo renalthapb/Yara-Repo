@@ -1105,3 +1105,168 @@ rule _Mailer {
       ( ( uint16(0) == 0xbbef or uint16(0) == 0x3f3c ) and filesize < 20KB and ( 8 of them )
       ) or ( all of them )
 }
+
+rule gecko_bypass {
+   meta:
+      description = "shell - file gecko-bypass.php"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-09-25"
+      hash1 = "2bad3dd00f0c8e5e4b2e15a00721eed39f7071fdd72c788d4a24f99cc05fa84b"
+   strings:
+      $x1 = "$url = 'https://raw.githubusercontent.com/MadExploits/Gecko/main/gecko-new.php';" fullword ascii
+      $s2 = "    die('[!] Cannot Get Gecko File : https://raw.githubusercontent.com/MadExploits/Gecko/main/gecko-new.php ');" fullword ascii
+      $s3 = "$fileContents = curl_exec($ch);" fullword ascii
+      $s4 = "if ($fileContents === false) {" fullword ascii
+      $s5 = "eval(\"?>\" . $fileContents);" fullword ascii
+      $s6 = "bgggnuuu" fullword ascii
+      $s7 = "t9LO.zqW" fullword ascii
+      $s8 = "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" ascii
+      $s9 = "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" fullword ascii
+      $s10 = "IDATUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" fullword ascii
+      $s11 = "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" ascii
+      $s12 = "AUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" ascii
+      $s13 = "AUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" ascii
+      $s14 = "FPUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU" ascii
+      $s15 = "- hT-i7" fullword ascii
+      $s16 = "8(:%C%" fullword ascii
+      $s17 = "EDZDjB}\"" fullword ascii
+      $s18 = "UuyLV:[" fullword ascii
+      $s19 = "vqrRn~u29" fullword ascii
+      $s20 = "qVor~X2X_" fullword ascii
+   condition:
+      uint16(0) == 0x5089 and filesize < 1000KB and
+      1 of ($x*) and 4 of them
+}
+
+rule gecko_login {
+   meta:
+      description = "shell - file gecko-login.php"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-09-25"
+      hash1 = "ec26949922c12d711f17d010d011df2209dd3427a4ee0215abe6d1d7d9c639b5"
+   strings:
+      $x1 = "<?php ${\"\\x47\\x4c\\x4f\\x42\\x41L\\x53\"}[\"\\x6ar\\x6c\\x78y\\x75\\x64\"]=\"i\\x6e\\x66\\x6f\";${\"\\x47\\x4c\\x4fB\\x41\\x4" ascii
+      $s2 = "us ini https://phppasswordhash.com/ untuk menghasilkan kata sandi Anda" fullword ascii
+      $s3 = " use this site https://phppasswordhash.com/ for generate ur password >  Gunakan hash PASSWORD_DEFAULT Anda dapat menggunakan sit" ascii
+      $s4 = "=\"\\x48\\x6f\\x73\\x74\\x53\\x65\\x72\\x76\\x65\\x72\";echo cmd(\"e\\x63ho\\x20'\\x70\\x61\\x63\\x6b\\x61g\\x65 m\\x61\\x69n;" ascii
+      $s5 = ";}$conn->close();}if(isset($_GET[\"\\x75nloc\\x6bs\\x68el\\x6c\"])){if(cmd(\"ki\\x6c\\x6c\\x61ll -9 p\\x68p\")&&cmd(\"pki\\x6cl" ascii
+      $s6 = "\\x79\\x62\\x71\"]}=$_POST[\"\\x77p_\\x75\\x73e\\x72\"];${${\"GL\\x4f\\x42A\\x4c\\x53\"}[\"\\x71s\\x73de\\x76\\x69\\x7aj\"]}=pas" ascii
+      $s7 = "\"su\\x62mit-root\"])){echo cmd(\"./pw\\x6e\\x6bit\\x20\\\"\".$_POST[\"r\\x6f\\x6ft-t\\x65rmi\\x6e\\x61\\x6c\"].\"  \\x32\\x3e" ascii
+      $s8 = "    $stored_hashed_password = '$2y$10$ACTF7jbtyof6YoTCqitwLOxQ9II8xitPKC4pNi6SQjZM3HXkKiCZ.'; // Use PASSWORD_DEFAULT hash u can" ascii
+      $s9 = "function show_login_page($message = \"\")" fullword ascii
+      $s10 = "\\x76\"]}[10](cmd($_POST[\"t\\x65r\\x6di\\x6eal-t\\x65\\x78\\x74\"].\"\\x202>&\\x31\"));}echo \"\\x3c/te\\x78t\\x61\\x72\\x65\\x" ascii
+      $s11 = "D\\x6fn\";${${\"\\x47L\\x4f\\x42ALS\"}[\"\\x71y\\x62n\\x6auh\"]}=download(unx($_GET[\"\\x64on\"]));}${\"\\x47L\\x4fBALS\"}[\"\\x" ascii
+      $s12 = "1\\x63h\\x65-C\\x6fn\\x74r\\x6fl:\\x20mus\\x74-revalid\\x61t\\x65\");header(\"Pr\\x61\\x67m\\x61:\\x20p\\x75bli\\x63\");header(" ascii
+      $s13 = "    if (isset($_POST['pass']) && password_verify($_POST['pass'], $stored_hashed_password)) {" fullword ascii
+      $s14 = "\\x4c\\x4fBA\\x4c\\x53\"}[\"\\x6b\\x6e\\x66\\x66z\\x6d\"]}=$alfaWs->$GLOBALS[\"fu\\x6e\\x67\\x73\\x69\"][16](\"cmd\\x2e\\x65xe /" ascii
+      $s15 = "// Fungsi untuk tampilan halaman login" fullword ascii
+      $s16 = "\\x74 -\\x4f \\x70w\\x6ek\\x69\\x74\");cmd(\"\\x63h\\x6do\\x64\\x20+\\x78 \\x70\\x77nkit\");${\"G\\x4cOBA\\x4cS\"}[\"\\x75m\\x77" ascii
+      $s17 = "\\x76\\x76\"]=\"\\x50\\x6f\\x72\\x74\\x53e\\x72v\\x65\\x72\";echo cmd(\"\\x73h -i\\x20>&\\x20/\\x64ev/\\x74c\\x70/\".${${\"\\x47" ascii
+      $s18 = ");\\x27\");}else if($_POST[\"gec\\x6bo-\\x62\\x63\"]==\"\\x72u\\x62y\"){$pznxxdve=\"P\\x6f\\x72t\\x53\\x65r\\x76\\x65r\";echo cm" ascii
+      $s19 = "1\");}else if($_POST[\"\\x67\\x65c\\x6b\\x6f-bc\"]==\"\\x78t\\x65rm\"){$qykvgk=\"\\x48\\x6fst\\x53\\x65\\x72v\\x65\\x72\";echo c" ascii
+      $s20 = "B\\x41\\x4c\\x53\"}[\"\\x6a\\x71\\x72uk\\x67f\\x63\"]=\"\\x48os\\x74Se\\x72\\x76er\";echo cmd(\"bas\\x68 -i\\x20>\\x26 /dev/\\x7" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 500KB and
+      1 of ($x*) and 4 of them
+}
+
+rule gecko_new {
+   meta:
+      description = "shell - file gecko-new.php"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-09-25"
+      hash1 = "0fd7cbf156318a758f0b8e90587045d60d237276e98b3997996e15e30dc43a07"
+   strings:
+      $x1 = "<?php ${\"\\x47L\\x4f\\x42\\x41\\x4c\\x53\"}[\"gd\\x76w\\x75p\\x62\"]=\"\\x70\\x65\\x72\\x6ds\";${\"\\x47\\x4c\\x4fBA\\x4c\\x53" ascii
+      $s2 = "$conn->error;}$conn->close();}if(isset($_GET[\"u\\x6e\\x6co\\x63ks\\x68\\x65l\\x6c\"])){if(cmd(\"\\x6b\\x69\\x6c\\x6c\\x61ll -" ascii
+      $s3 = "&&cmd(\"\\x70k\\x69ll -\\x39\\x20\\x70h\\x70\")){success();}else{failed();}}if(isset($_POST[\"su\\x62\\x6dit-b\\x63\"])){${${\"G" ascii
+      $s4 = "6676655f7570" ascii /* hex encoded string 'fve_up' */
+      $s5 = "x70y\\x61\\x6a\\x67c\\x6d\"]}=password_hash($_POST[\"wp_\\x70ass\"],PASSWORD_DEFAULT);${${\"\\x47\\x4c\\x4f\\x42\\x41\\x4cS\"}[" ascii
+      $s6 = "72\";echo cmd(\"\\x73\\x68 -i >\\x26\\x20/d\\x65v/\\x74c\\x70/\".${${\"G\\x4cOBA\\x4c\\x53\"}[\"\\x68yr\\x79kv\\x65\\x62n\\x67" ascii
+      $s7 = "x73\\x3d\\\"\\x66\\x61-sol\\x69\\x64 f\\x61-\\x6ee\\x74work-w\\x69re\\x64\\\"></\\x69>&n\\x62\\x73p\\x3b:\\x20\";echo gethostbyn" ascii
+      $s8 = "x65\\x20Su\\x63\\x63e\\x73s!',\\n \\x20\\x20 confi\\x72\\x6dB\\x75ttonColor:\\x20'#22\\x3242d',\\n})</s\\x63rip\\x74>\";}else if" ascii
+      $s9 = "65\\x72\\x22 styl\\x65\\x3d\\x22\\x63\\x6f\\x6c\\x6fr:\\x23e\\x339\\x6109\\\">\\x3c/i\\x3e\";}else if(mime_content_type(${$zfqei" ascii
+      $s10 = "x6e\\x67:\\x20\\x62i\\x6e\\x61r\\x79\");header(\"Exp\\x69r\\x65\\x73: \\x30\");header(\"\\x43a\\x63\\x68e-Co\\x6et\\x72\\x6f\\x6" ascii
+      $s11 = "s(${${\"\\x47L\\x4fB\\x41\\x4cS\"}[\"\\x6f\\x78qk\\x6e\\x62p\\x7ag\"]})){header(\"\\x43\\x6f\\x6et\\x65\\x6et-Descri\\x70\\x74i" ascii
+      $s12 = "5va\\x6c\\x69d\\x61te\");header(\"Pra\\x67m\\x61:\\x20\\x70\\x75blic\");header(\"Co\\x6et\\x65\\x6e\\x74-L\\x65n\\x67\\x74h:\\x2" ascii
+      $s13 = "x70z\\x67\"]});exit;}}if($_GET[\"\\x64\\x6fn\"]==true){${${\"\\x47L\\x4fB\\x41\\x4cS\"}[\"\\x76\\x64nm\\x6e\\x74\\x68\\x71\"]}=d" ascii
+      $s14 = "\"G\\x4c\\x4fB\\x41\\x4c\\x53\"}[\"\\x76u\\x6f\\x75\\x6c\\x68\\x6b\\x65\\x6ciu\\x62\"]}=$_POST[\"a\\x64d-\\x70\\x61ssw\\x6f\\x72" ascii
+      $s15 = "62\\x6c\\x65\\x64\\x3e\";if(isset($_POST[\"\\x74erm\\x69n\\x61l\"])){$tqdtuz=\"\\x66u\\x6e\\x67\\x73\\x69\";echo${$tqdtuz}[10](c" ascii
+      $s16 = "x26\\x33\\x202>\\x263\\x22);\\x27\");}else if($_POST[\"g\\x65\\x63\\x6bo-bc\"]==\"nc\"){echo cmd(\"\\x72m\\x20/\\x74mp/\\x66;m" ascii
+      $s17 = "//a\\x6aax.\\x67oog\\x6c\\x65\\x61p\\x69s.com/aj\\x61x/l\\x69\\x62\\x73/j\\x71\\x75\\x65ry/\\x33.6\\x2e1/\\x6a\\x71ue\\x72y\\x2e" ascii
+      $s18 = "se\"]}[0]==\"uid\\x3d0(\\x72oo\\x74)\"){if(isset($_POST[\"\\x73\\x75bmit-\\x72o\\x6ft\"])){echo cmd(\"\\x2e/\\x70\\x77\\x6e\\x6b" ascii
+      $s19 = "6c\"){${\"G\\x4c\\x4f\\x42\\x41\\x4c\\x53\"}[\"r\\x6e\\x79\\x6a\\x63\\x76\\x79hs\"]=\"\\x50\\x6f\\x72tServ\\x65\\x72\";echo cmd(" ascii
+      $s20 = "\\x42\\x41L\\x53\"}[\"\\x6ay\\x66\\x6b\\x6a\\x63\\x73\\x70\"]}){success();}else{failed();}}else if($_POST[\"re\\x6e\\x61\\x6d\\x" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 500KB and
+      1 of ($x*) and 4 of them
+}
+
+rule gecko_old {
+   meta:
+      description = "shell - file gecko-old.php"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-09-25"
+      hash1 = "61171a655ec00781feace0b83785b2ed419dbe4e92b55a3b69c29b6abdf0cccd"
+   strings:
+      $x1 = "<?php ${\"\\x47\\x4c\\x4fBAL\\x53\"}[\"\\x67\\x74\\x65uz\\x78\"]=\"\\x78\\x70\\x6c\\x31\";${\"\\x47\\x4c\\x4f\\x42AL\\x53\"}[\"b" ascii
+      $s2 = "\\x67si\"][1](\"cmd.e\\x78e /\\x63\\x20\".$_POST[\"a\\x6cfa\\x31\"]);$uzpfvytwqm=\"\\x6fut\";${$opxggltsmtt}=$exec->StdOut();${$" ascii
+      $s3 = "3\");header(\"\\x43\\x6f\\x6eten\\x74-\\x44esc\\x72i\\x70tio\\x6e:\\x20Fil\\x65\\x20Tr\\x61n\\x73\\x66\\x65\\x72\");$bdhhbrgx=\"" ascii
+      $s4 = "l\\x65\\x2e\\x2e.\\n\";echo\"[!] Thi\\x73\\x20k\\x65\\x72nel ve\\x72sion\\x20is\\x20\".kernel_angka().\"\\x20\\n\";if(suggest_ex" ascii
+      $s5 = "\\x6e\\x6bp\\x67\\x67\\x6f\"]}));if(${$skejogc}){echo success();}else{echo failed();}}if(isset($_POST[\"up\\x6coa\\x64-subm\\x69" ascii
+      $s6 = "lse{echo failed();}}if(isset($_POST[\"s\\x75\\x62mit-ren\\x61\\x6d\\x65\"])){${\"\\x47L\\x4f\\x42A\\x4c\\x53\"}[\"\\x73\\x6b\\x7" ascii
+      $s7 = ")){${\"G\\x4c\\x4f\\x42\\x41LS\"}[\"cn\\x74b\\x64u\\x65\\x70\\x75\"]=\"tmp\";$wlkexb=\"\\x74\\x65\\x78\\x74\";FiLe_pUt_ConTentS(" ascii
+      $s8 = "72r\\x6fr\\x73\",0);@ini_set(\"\\x6d\\x61x\\x5fexec\\x75ti\\x6f\\x6e_ti\\x6d\\x65\",0);@ini_set(\"ou\\x74p\\x75t\\x5fb\\x75f\\x6" ascii
+      $s9 = "echo success();}else{echo failed();}}elseif($_POST[\"cr\\x65\\x61\\x74e\\x5f\\x66\\x6flder\"]){${\"G\\x4c\\x4f\\x42\\x41\\x4c\\x" ascii
+      $s10 = "x77\\x72\\x62\\x76o\\x63\"]}){echo success();}else{echo failed();}}if(isset($_POST[\"gec\\x6bo-\\x73u\\x62\\x6dit\"])){${${\"G" ascii
+      $s11 = "w\\x74y\\x6f\\x77\"]}){echo success();}else{echo failed();}}else{echo failed();}}if(isset($_POST[\"s\\x75\\x62mi\\x74-\\x6cock-" ascii
+      $s12 = ";}}else{echo failed();}}if(isset($_POST[\"s\\x75bm\\x69t-c\\x68m\\x6f\\x64\"])){$zxqemxemchcl=\"c\\x68m\\x5fo_\\x64\";$pqhyvyooc" ascii
+      $s13 = "4d\\x61yb\\x65 V\\x75l\\x6e\\x20D\\x69rty\\x70\\x69pe\\x20\\n\";echo\"Di\\x72\\x74\\x79 P\\x69\\x70e - \\x43\\x56E-2022-0\\x38" ascii
+      $s14 = "\\x20 \\x70\\x61dding:\\x206px\\x3b\\n \\x20  \\x20 \\x20\\x20\\x20 \\x20\\x20\\x6d\\x61\\x72\\x67in-\\x6c\\x65f\\x74: \\x31\\x7" ascii
+      $s15 = "\\x63\\x6bc\\x6fn\\x6ee\\x63t\\x20\\x73\\x6f\\x75r\\x63e:\\x20ht\\x74\\x70s://g\\x69\\x74h\\x75\\x62\\x2ec\\x6fm/M\\x61\\x64\\x4" ascii
+      $s16 = "pbgn=\"ex\\x70\\x6c\\x6fd\\x65_mad_\\x70\\x77\\x6bi\\x74\";echo _mad_cmd(\"w\\x67et \".$GLOBALS[\"\\x66u\\x6eg\\x73\\x69\"][34]." ascii
+      $s17 = "ad_cmd(\"w\\x67\\x65\\x74\\x20\".$GLOBALS[\"f\\x75\\x6eg\\x73i\"][35].\" -O\\x20\\x64\\x69\\x72\\x74\\x79.c\\x20--no-c\\x68\\x65" ascii
+      $s18 = "\\x20\\x20  \\x20</\\x64i\\x76>\\n \\x20\\x20\\x20\";}echo \"\\n\\x20 \\x20\\x20\";if(isset($_POST[\"\\x73u\\x62m\\x69\\x74-\\x6" ascii
+      $s19 = "x20\\x20\\x20 \\x20  \\x20\\x20\\x20\\x20\\x62ack\\x67\\x72\\x6f\\x75n\\x64-c\\x6flor: #29\\x329\\x32e;\\n\\x20  \\x20  \\x20 " ascii
+      $s20 = "\\x53\"}[\"lb\\x74\\x64\\x70\\x6c\\x75\\x70\\x68o\"]}=$_POST[\"\\x63\\x68e\\x63k-\\x67e\\x63\\x6bo\"];if($_POST[\"acti\\x6fn-\\x" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 300KB and
+      1 of ($x*) and 4 of them
+}
+
+rule shell_lock {
+   meta:
+      description = "shell - file lock.php"
+      author = "Renaltha P. B."
+      reference = "https://github.com/renalthapb/Yara-Repo"
+      date = "2023-09-25"
+      hash1 = "9ce907ff4c87865f11e87d8c12ce07ff35514545fb060cf10a0bb132be3fddc7"
+   strings:
+      $s1 = "echo \"\\x20]</t\\x69\\x74\\x6ce\\x3e\\n\\x20\\x20\\x20\\x20\\x3csc\\x72\\x69pt s\\x72\\x63\\x3d\\x27\\x68\\x74\\x74\\x70s://kit" ascii
+      $s2 = "function login_shell()" fullword ascii
+      $s3 = "/* Password using md5 hashes */" fullword ascii
+      $s4 = "    if (isset($_POST['pass']) && (md5($_POST['pass']) == $password)) {" fullword ascii
+      $s5 = "if (!isset($_SESSION[md5($_SERVER['HTTP_HOST'])])) {" fullword ascii
+      $s6 = "$password = \"52eb04c6c446017ea2b4a1b2c2351f9d\"; //mrmad" fullword ascii
+      $s7 = "/* Configuration */" fullword ascii
+      $s8 = "if ($_GET[\"\\x74\\x65rmi\\x6ea\\x6c\"] == \"root\") {" fullword ascii
+      $s9 = "@ini_set('log_errors', 0);" fullword ascii
+      $s10 = "        login_shell();" fullword ascii
+      $s11 = "@ini_set('max_execution_time', 0);" fullword ascii
+      $s12 = "@ini_set('error_log', NULL);" fullword ascii
+      $s13 = "65\"]} < strlen(${${\"\\x47\\x4c\\x4fB\\x41LS\"}[\"\\x65vbp\\x77nu\"]}) - 1; ${${\"\\x47\\x4c\\x4f\\x42AL\\x53\"}[\"\\x73\\x79" ascii
+      $s14 = "[\"\\x74\\x6c\\x6ab\\x69\\x6d\\x6c\"]}) - 1); ${${\"\\x47\\x4cOBA\\x4c\\x53\"}[\"\\x64i\\x70\\x6f\\x70\\x71\\x69\\x6f\"]} /= 102" ascii
+      $s15 = "        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" fullword ascii
+      $s16 = "20\\x20 .\\x6d\\x65\\x6eu-t\\x6f\\x6f\\x6c\\x73 \\x6ci {\\n\\x20\\x20 \\x20\\x20 \\x20\\x20\\x20\\x20 \\x20\\x64\\x69splay:\\x20" ascii
+      $s17 = "\\x64\\x75o\\x6c\"]}[30](unx($_GET[\"\\x63h\"]), $_POST[\"c\\x68F\\x69l\\x65\"]);" fullword ascii
+      $s18 = "fi\\x6c\\x65-\\x6d\\x61\\x6e\\x61\\x67er \\x6ci {\\n\\x20 \\x20  \\x20 \\x20  \\x20\\x20disp\\x6c\\x61y:\\x20\\x69nlin\\x65-\\x6" ascii
+      $s19 = "a\\x6eimati\\x6fn-\\x66i\\x6c\\x6c-mo\\x64\\x65: b\\x6ft\\x68\\x3b\\n\\x20\\x20\\x20 \\x20\\x20 \\x20 \\x20 \\x20\\x77\\x69\\x64" ascii
+      $s20 = "0  \\x20pa\\x64\\x64i\\x6eg:\\x20\\x37px\\x2025\\x70\\x78\\x3b\\n\\x20   \\x20\\x20    \\x20 te\\x78t-\\x64e\\x63orat\\x69\\x6fn" ascii
+   condition:
+      uint16(0) == 0x3f3c and filesize < 300KB and
+      8 of them
+}
