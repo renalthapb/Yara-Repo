@@ -689,7 +689,7 @@ rule shell_0byt3m1n1 {
       $s3 = "}elseif($_POST['type'] == 'file'){" fullword ascii
       $s4 = "echo perms(\"$path/$dir\");" fullword ascii
       $s5 = "echo perms(\"$path/$file\");" fullword ascii
-	  $s6 = "echo'<br><center>&copy; 2017 - <a href=\"http://zerobyte.id/\">ZeroByte.ID</a>.</center><br>';?>" fullword ascii
+      $s6 = "echo'<br><center>&copy; 2017 - <a href=\"http://zerobyte.id/\">ZeroByte.ID</a>.</center><br>';?>" fullword ascii
    condition:
       ( ( uint16(0) == 0x3f3c or uint16(0) == 0xd8ff ) and filesize < 100KB and ( all of them )
       ) or ( all of them )
